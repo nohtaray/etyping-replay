@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div id="word">
+    <span id="accepted" style="color:lightgray"></span><span id="remains" style="color:black"></span>
+</div>
+<script>
+
+  words = [
+    '肩を落とす',
+    '一線を画す',
+  ];
+
+  types = [
+    'KATAWOOTOSU',
+    'ISSENNWOKAKUSU',
+  ];
+
+  charTimes = [
+    [533, 621, 708, 769, 813, 880, 1037, 1139, 1436, 1504, 1550],
+    [499, 623, 779, 815, 927],
+  ];
+
+  //words.forEach()
+
+  i = 0;
+  wordType = types[i];
+  wordCharTimes = charTimes[i];
+
+  wordCharTimes.forEach((time, ci) => {
+    setTimeout(() => {
+      $('#accepted').text(wordType.slice(0, ci + 1));
+      $('#remains').text(wordType.slice(ci + 1));
+    }, time);
+  });
+
+</script>
+</body>
+</html>
